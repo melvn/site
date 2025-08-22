@@ -6,11 +6,11 @@ excerpt: Computer Science student at Swinburne University of Technology, majorin
 comments: false
 ---
 
-Hi, I'm **Melvin Goxhaj** — a Computer Science student at Swinburne University of Technology, majoring in Artificial Intelligence, and currently working as a Data Steward / Analyst at ANZ in Melbourne. My focus is on building reliable machine learning systems, data pipelines, and tools that can be used in production environments.
+Hi, I'm **Melvin Goxhaj** — a Computer Science graduate from Swinburne University of Technology, with a major in Artificial Intelligence, and currently working as a Data Steward / Analyst at ANZ in Melbourne. My focus is on building reliable machine learning systems and models that can be used in production environments for a real world impact. 
 
-I've had the chance to design and deploy ML applications that serve over 1,000 users, including [StopOdds.com](https://github.com/{{ site.author.github }}/StopOdds), an end-to-end MLOps project where I built inference services with FastAPI, set up CI/CD pipelines, added monitoring, and automated retraining. I've also explored smart contract security with LLMs, real estate price prediction, and deep learning image classification. Most of my work emphasizes reproducibility, data quality, and making sure systems can be trusted in real-world settings.
+I've had the chance to design and deploy ML applications that has served thousands of users, including [StopOdds.com](https://github.com/{{ site.author.github }}/StopOdds), an end-to-end ML project where I built inference services with FastAPI, set up CI/CD pipelines, added monitoring, and automated retraining. I've also explored smart contract security with LLMs, real estate price prediction, and deep learning image classification throughout my time as a student. Most of my work emphasizes simplicity, data quality, and making sure systems can be trusted in real-world settings.
 
-Right now, I'm especially interested in **MLOps**, **anomaly detection**, and **data validation**. My main tools are Python, scikit-learn, XGBoost, Pandas, and Docker, but I'm always experimenting with new ways to bridge research and production.
+Right now, I'm especially interested in reasoning and frontier models. I'm always experimenting with new ways to bridge research and production.
 
 ## Projects
 
@@ -24,7 +24,6 @@ I enjoy building things that don't just work in theory, but hold up in practice.
 
 ## Contact
 
-Feel free to reach out if you'd like to discuss ML systems, data engineering, or any interesting projects:
+Feel free to reach out if you'd like to discuss ML systems engineering, or any and all interesting projects:
 
-- [GitHub](https://github.com/{{ site.author.github }})
-- [LinkedIn](https://linkedin.com/in/{{ site.author.username }})
+- [LinkedIn](https://www.linkedin.com/in/melvin-goxhaj-336a16260/{{ site.author.username }})
