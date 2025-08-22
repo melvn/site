@@ -1,7 +1,7 @@
 # Site settings
 title: Melvin Goxhaj # site title
 description: >- # site description
-  Computer Science student at Swinburne University of Technology majoring in AI, 
+  Computer Science graduate at Swinburne University of Technology in AI, 
   working as Data Steward/Analyst at ANZ. Building reliable ML systems and production-ready tools.
 lang: en-US # default lang
 timezone: Australia/Melbourne # set your timezone
@@ -13,9 +13,10 @@ mode: dark # default theme "dark" | "light"
 author:
   name: Melvin Goxhaj # author name
   bio: >- # tell to the world
-    Computer Science student at Swinburne University of Technology, majoring in Artificial Intelligence. 
+    Computer Science graduate at Swinburne University of Technology, majoring in Artificial Intelligence. 
     Currently working as a Data Steward/Analyst at ANZ in Melbourne. Focus on building reliable machine learning 
-    systems, data pipelines, and tools for production environments.
+    systems, data pipelines, and tools for production environments. I'm interested in difficult problems with simple solutions. 
+    Currently working on LLMs based technologies.
   username: melvingoxhaj # general username
   github: melvingoxhaj # github username
   twitter: # twitter username
