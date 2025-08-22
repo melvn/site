@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building on LLM Research: Smart Contract Security and Beyond"
-date: 2025-08-22 10:00:00 +0000
+date: 2025-08-21 10:00:00 +1000
 categories: research llm
 ---
 
