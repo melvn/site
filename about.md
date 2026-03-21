@@ -2,11 +2,11 @@
 title: About
 permalink: /about/
 layout: page
-excerpt: Computer Science student at Swinburne University of Technology, majoring in AI, working as Data Steward/Analyst at ANZ. Building reliable ML systems and production-ready tools.
+excerpt: Data analyst at ANZ. Computer Science graduate from Swinburne University of Technology, majoring in AI. Building reliable ML systems and production-ready tools.
 comments: false
 ---
 
-Hi, I'm **Melvin Goxhaj** — a Computer Science graduate from Swinburne University of Technology, with a major in Artificial Intelligence, and currently working as a Data Steward / Analyst at ANZ in Melbourne. My focus is on building reliable machine learning systems and models that can be used in production environments for a real world impact. 
+Hi, I'm **Melvin Goxhaj** — a data analyst at ANZ in Melbourne. I studied Computer Science with a major in Artificial Intelligence at Swinburne University of Technology. My focus is on building reliable machine learning systems and models that can be used in production environments for real world impact.
 
 I've had the chance to design and deploy ML applications that has served thousands of users, including [StopOdds.com](https://github.com/{{ site.author.github }}/StopOdds), an end-to-end ML project where I built inference services with FastAPI, set up CI/CD pipelines, added monitoring, and automated retraining. I've also explored smart contract security with LLMs, real estate price prediction, and deep learning image classification throughout my time as a student. Most of my work emphasizes simplicity, data quality, and making sure systems can be trusted in real-world settings.
 

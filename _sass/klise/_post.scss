@@ -1,15 +1,118 @@
-// Post wrapper
+// Post wrapper — 3-zone flex layout
 .wrapper.post {
+  display: flex;
+  align-items: flex-start;
+  max-width: 1160px;
+  gap: 2rem;
+
+  @include media-query($on-desktop) {
+    max-width: 980px;
+  }
+
   @include media-query($on-mobile) {
+    display: block;
+    max-width: calc(#{$narrow-size} - #{$spacing-full});
     padding-left: $spacing-half;
     padding-right: $spacing-half;
+  }
+}
+
+// Centre column — holds article, nav, footer
+.post-inner {
+  flex: 1;
+  min-width: 0;
+}
+
+// Right spacer — reserved for future sidenotes
+.margin-col {
+  width: 180px;
+  flex-shrink: 0;
+
+  @include media-query($on-desktop) {
+    display: none;
+  }
+}
+
+// TOC sidebar
+.toc-sidebar {
+  width: 180px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  position: sticky;
+  top: 2rem;
+  padding-right: 1rem;
+  font-family: $sans-family;
+  font-size: 0.78rem;
+
+  @include media-query($on-desktop) {
+    width: 160px;
+  }
+
+  @include media-query($on-mobile) {
+    display: none;
+  }
+}
+
+.toc-label {
+  font-family: $heading-family;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $gray;
+  margin: 0 0 0.6rem 10px;
+}
+
+#toc {
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+    padding: 0;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  a {
+    display: block;
+    padding: 3px 0;
+    color: $gray;
+    text-decoration: none;
+    line-height: 1.35;
+    border-left: 2px solid transparent;
+    padding-left: 8px;
+    transition: color 150ms ease, border-color 150ms ease;
+
+    &:hover {
+      color: $text-base-color;
+    }
+
+    &.active {
+      color: $text-base-color;
+      border-left-color: $text-link-blue;
+      font-weight: 500;
+    }
+  }
+
+  .toc-h3 a {
+    padding-left: 18px;
+    font-size: 0.74rem;
+    opacity: 0.85;
   }
 }
 
 // Post title
 .header {
   margin-top: 7.8em;
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
+  padding-bottom: 1.5em;
+  border-bottom: 1px solid $light;
 
   .tags {
     margin-left: 3px;
@@ -67,9 +170,41 @@
   }
 }
 
+// Post abstract
+.post-abstract {
+  font-family: $serif-family;
+  font-style: italic;
+  font-size: 0.9375rem;
+  color: $gray;
+  line-height: 1.65;
+  border-left: 3px solid $light;
+  padding: 0.25rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+// Reading time
+.read-time {
+  font-size: $small-font-size;
+  color: $gray;
+  margin-left: 0.5em;
+}
+
 // Post content
 .page-content {
   padding-top: 8px;
+  font-family: $serif-family;
+  font-size: 1.0625rem;
+
+  // Drop cap on first paragraph
+  > p:first-of-type::first-letter {
+    float: left;
+    font-size: 3.4em;
+    line-height: 0.75;
+    margin-right: 0.1em;
+    margin-top: 0.1em;
+    font-weight: 600;
+    color: $black;
+  }
 
   iframe {
     text-align: center;
@@ -89,7 +224,9 @@
 
   a {
     color: $text-link-blue;
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: rgba($text-link-blue, 0.25);
+    text-underline-offset: 2px;
     &[target="_blank"]::after {
       content: " \2197";
       font-size: $small-font-size;

@@ -26,15 +26,37 @@ body[data-theme="dark"] {
     }
   }
 
+  // TOC sidebar
+  #toc {
+    a {
+      color: $dark-gray;
+
+      &:hover {
+        color: $dark-text-base-color;
+      }
+
+      &.active {
+        color: $dark-text-base-color;
+        border-left-color: $dark-text-link-blue;
+      }
+    }
+  }
+
   // Post
   .page-content {
+    > p:first-of-type::first-letter {
+      color: $dark-white;
+    }
+
     a {
       color: $dark-text-link-blue;
+      text-decoration-color: rgba($dark-text-link-blue, 0.25);
 
       &:hover,
       &:active,
       &:focus {
         color: $dark-text-link-blue-active;
+        text-decoration-color: rgba($dark-text-link-blue-active, 0.4);
       }
     }
 
@@ -111,7 +133,23 @@ body[data-theme="dark"] {
   // Blockquote
   blockquote {
     color: $dark-gray;
-    border-color: $dark-light;
+    border-left-color: $dark-light;
+  }
+
+  // Post header separator
+  .header {
+    border-bottom-color: $dark-light;
+  }
+
+  // Post abstract
+  .post-abstract {
+    color: $dark-gray;
+    border-left-color: $dark-light;
+  }
+
+  // Reading time
+  .read-time {
+    color: $dark-gray;
   }
 
   // Strong, Bold
@@ -158,20 +196,22 @@ body[data-theme="dark"] {
     &:not(:first-child) {
       border-color: $dark-light;
     }
+  }
 
-    .post-item-date {
+  .post-item-title {
+    a {
       color: $dark-white;
-    }
-    .post-item-title {
-      a {
-        color: $dark-text-base-color;
 
-        &:hover,
-        &focus {
-          color: $dark-white;
-        }
+      &:hover {
+        color: $dark-text-link-blue;
       }
     }
+  }
+
+  .post-item-date,
+  .post-item-desc,
+  .posts-label {
+    color: $dark-gray;
   }
 
   // Post Navigation

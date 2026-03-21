@@ -15,6 +15,17 @@ comments: false
 
 <ul id="search-results"></ul>
 
+<script src="/assets/js/search.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    SimpleJekyllSearch({
+      searchInput: document.getElementById('search-input'),
+      resultsContainer: document.getElementById('search-results'),
+      json: '/assets/search.json',
+    });
+  });
+</script>
+
 {%- for post in site.posts -%}
   {%- capture current_year -%}{{ post.date | date: "%Y" }}{%- endcapture -%}
   {%- unless current_year == previous_year -%}
