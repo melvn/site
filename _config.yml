@@ -1,8 +1,8 @@
 # Site settings
 title: Melvin Goxhaj # site title
 description: >- # site description
-  Data analyst at ANZ. Computer Science student.
-  Building reliable ML systems and production-ready tools.
+  Data analyst at ANZ in Melbourne and Computer Science student.
+  Writing on machine learning and AI alignment.
 lang: en-US # default lang
 timezone: Australia/Melbourne # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
@@ -13,8 +13,9 @@ mode: system # default theme "system" | "dark" | "light"
 author:
   name: Melvin Goxhaj # author name
   bio: >- # tell to the world
-    Data analyst at ANZ in Melbourne. Computer Science student.
-    I'm interested in difficult problems with simple solutions.
+    Data analyst at ANZ in Melbourne and Computer Science student.
+    I work on machine learning and AI alignment, and write here about
+    what I build and what I learn.
   username: melvingoxhaj # general username
   github: melvingoxhaj # github username
   linkedin: melvin-goxhaj-336a16260 # linkedin username

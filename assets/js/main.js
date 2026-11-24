@@ -74,27 +74,6 @@
     }
   }
 
-  // Reading progress on posts
-  const bar = document.getElementById("progress");
-  if (bar && content && document.querySelector(".wrapper.post")) {
-    let ticking = false;
-    const update = () => {
-      const r = content.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (window.innerHeight * 0.25 - r.top) / r.height));
-      bar.style.transform = "scaleX(" + p + ")";
-      bar.classList.toggle("on", window.scrollY > 40 && p > 0.004);
-      ticking = false;
-    };
-    window.addEventListener("scroll", () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(update);
-      }
-    }, { passive: true });
-    window.addEventListener("resize", update);
-    update();
-  }
-
   // Code blocks: language label and copy button
   const copyText = async (text) => {
     try {

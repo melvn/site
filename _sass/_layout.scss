@@ -13,6 +13,14 @@
   }
 }
 
+// Post pages between $on-narrow and $on-wide: line the navbar up with the text column
+@media screen and (min-width: $on-narrow) and (max-width: $on-wide - 1) {
+  body[data-layout="post"] .navbar {
+    max-width: $sidebar-width + 36px + $text-width + $gutter * 2;
+    padding-left: $gutter + $sidebar-width + 36px;
+  }
+}
+
 .menu {
   display: flex;
   align-items: center;
@@ -24,10 +32,17 @@
 }
 
 .menu-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-weight: 650;
   letter-spacing: -0.01em;
   color: var(--heading);
   text-decoration: none;
+
+  svg {
+    color: var(--accent);
+  }
 }
 
 .menu-links {
