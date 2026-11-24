@@ -70,7 +70,8 @@
       );
       headings.forEach((h) => observer.observe(h));
     } else if (sidebar) {
-      sidebar.style.display = "none";
+      // Hidden but keeps its grid slot, so the text stays centred.
+      sidebar.style.visibility = "hidden";
     }
   }
 
