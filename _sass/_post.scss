@@ -197,6 +197,12 @@
     text-underline-offset: 3px;
     text-decoration-thickness: 1px;
 
+    &[target="_blank"]::after {
+      content: " \2197";
+      font-family: $sans-family;
+      font-size: 0.75em;
+    }
+
     &:hover {
       color: var(--accent-active);
       text-decoration-color: currentColor;

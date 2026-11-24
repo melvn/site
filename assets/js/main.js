@@ -26,7 +26,6 @@
   });
 
   // Table of contents: sidebar on wide screens, collapsible on narrow ones.
-  // An empty sidebar is hidden but keeps its grid slot so the text stays centred.
   const content = document.querySelector(".page-content");
   const tocEl = document.getElementById("toc");
   if (content && tocEl) {
@@ -71,7 +70,7 @@
       );
       headings.forEach((h) => observer.observe(h));
     } else if (sidebar) {
-      sidebar.style.visibility = "hidden";
+      sidebar.style.display = "none";
     }
   }
 
