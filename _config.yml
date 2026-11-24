@@ -6,7 +6,7 @@ description: >- # site description
 lang: en-US # default lang
 timezone: Australia/Melbourne # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
-repo: https://github.com/piharpi/jekyll-klise # site repo [optional]
+repo: https://github.com/melvn/site # site repo [optional]
 mode: dark # default theme "dark" | "light"
 
 # Profile settings
@@ -17,17 +17,16 @@ author:
     majoring in Artificial Intelligence. I'm interested in difficult problems with simple solutions.
   username: melvingoxhaj # general username
   github: melvingoxhaj # github username
+  linkedin: melvin-goxhaj-336a16260 # linkedin username
   twitter: # twitter username
-  facebook: # facebook username
   email: # email adress
-  avatar: /assets/img/me.png
+  avatar: /assets/img/me.jpg
 
 # URL settings
 url: "https://klise.now.sh" #
 baseurl:
 permalink: /:title/
 google_analytics: # leave it blank if not wish
-fb_appid:
 
 # Collection setting
 collections:
@@ -72,18 +71,11 @@ include:
   - .htaccess
 
 exclude:
-  - CNAME
   - Gemfile
   - Gemfile.lock
   - LICENSE
-  - CHANGELOG.md
   - README.md
   - node_modules
-  - CODE_OF_CONDUCT.md
-  - CONTRIBUTING.md
-  - lighthouse.png
-  - klise-*.gem
-  - klise.gemspec
 
 # Plugins
 plugins:

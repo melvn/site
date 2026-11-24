@@ -50,29 +50,26 @@
   const body = document.body;
   const lamp = document.getElementById("mode");
 
-  const toggleTheme = (state) => {
-    if (state === "dark") {
-      localStorage.setItem("theme", "light");
-      body.removeAttribute("data-theme");
-    } else if (state === "light") {
-      localStorage.setItem("theme", "dark");
-      body.setAttribute("data-theme", "dark");
-    } else {
-      initTheme(state);
-    }
-  };
+  if (lamp) {
+    lamp.addEventListener("click", () => {
+      const isDark = body.getAttribute("data-theme") === "dark";
+      if (isDark) {
+        body.removeAttribute("data-theme");
+      } else {
+        body.setAttribute("data-theme", "dark");
+      }
+      localStorage.setItem("theme", isDark ? "light" : "dark");
+    });
+  }
 
-  lamp.addEventListener("click", () =>
-    toggleTheme(localStorage.getItem("theme"))
-  );
-
-  // Blur the content when the menu is open
+  // Blur the content when the mobile menu is open
   const cbox = document.getElementById("menu-trigger");
 
-  cbox.addEventListener("change", function () {
-    const area = document.querySelector(".wrapper");
-    this.checked
-      ? area.classList.add("blurry")
-      : area.classList.remove("blurry");
-  });
+  if (cbox) {
+    cbox.addEventListener("change", function () {
+      document
+        .querySelectorAll(".wrapper")
+        .forEach((el) => el.classList.toggle("blurry", this.checked));
+    });
+  }
 })();

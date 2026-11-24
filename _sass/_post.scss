@@ -1,4 +1,6 @@
-// Post wrapper — 3-zone flex layout
+@use "variables" as *;
+
+// Post wrapper: TOC | article | spacer
 .wrapper.post {
   display: flex;
   align-items: flex-start;
@@ -11,19 +13,16 @@
 
   @include media-query($on-mobile) {
     display: block;
-    max-width: calc(#{$narrow-size} - #{$spacing-full});
     padding-left: $spacing-half;
     padding-right: $spacing-half;
   }
 }
 
-// Centre column — holds article, nav, footer
 .post-inner {
   flex: 1;
   min-width: 0;
 }
 
-// Right spacer — reserved for future sidenotes
 .margin-col {
   width: 180px;
   flex-shrink: 0;
@@ -33,7 +32,6 @@
   }
 }
 
-// TOC sidebar
 .toc-sidebar {
   width: 180px;
   flex-shrink: 0;
@@ -41,7 +39,6 @@
   position: sticky;
   top: 2rem;
   padding-right: 1rem;
-  font-family: $sans-family;
   font-size: 0.78rem;
 
   @include media-query($on-desktop) {
@@ -54,12 +51,11 @@
 }
 
 .toc-label {
-  font-family: $heading-family;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: $gray;
+  color: var(--muted);
   margin: 0 0 0.6rem 10px;
 }
 
@@ -74,28 +70,23 @@
     margin: 0;
     padding: 0;
 
-    &::before {
-      display: none;
-    }
+    &::before { display: none; }
   }
 
   a {
     display: block;
-    padding: 3px 0;
-    color: $gray;
+    padding: 3px 0 3px 8px;
+    color: var(--muted);
     text-decoration: none;
     line-height: 1.35;
     border-left: 2px solid transparent;
-    padding-left: 8px;
     transition: color 150ms ease, border-color 150ms ease;
 
-    &:hover {
-      color: $text-base-color;
-    }
+    &:hover { color: var(--text); }
 
     &.active {
-      color: $text-base-color;
-      border-left-color: $text-link-blue;
+      color: var(--text);
+      border-left-color: var(--accent);
       font-weight: 500;
     }
   }
@@ -107,12 +98,12 @@
   }
 }
 
-// Post title
+// Post header
 .header {
   margin-top: 7.8em;
   margin-bottom: 2.5em;
   padding-bottom: 1.5em;
-  border-bottom: 1px solid $light;
+  border-bottom: 1px solid var(--line);
 
   .tags {
     margin-left: 3px;
@@ -121,10 +112,10 @@
     .tag {
       font-weight: $bold-weight;
       font-size: $small-font-size - 2;
+      color: var(--accent);
+      text-decoration: none;
 
-      &:hover {
-        text-decoration: none;
-      }
+      &:hover { text-decoration: underline; }
     }
   }
 
@@ -134,9 +125,7 @@
     margin-top: 10px;
     margin-bottom: 20px;
 
-    &.center {
-      text-align: center;
-    }
+    &.center { text-align: center; }
 
     @include media-query($on-mobile) {
       font-size: 1.9em;
@@ -144,18 +133,17 @@
   }
 }
 
-// Post meta
 .post-meta {
   padding-top: 3px;
   line-height: 1.3;
-  color: $gray;
+  color: var(--muted);
 
   time {
     position: relative;
     margin-right: 1.5em;
 
     &::after {
-      background: $light;
+      background: var(--line);
       bottom: 1px;
       content: " ";
       height: 2px;
@@ -164,38 +152,31 @@
       width: 12px;
     }
   }
-
-  span[itemprop="author"] {
-    border-bottom: 1px dotted $light;
-  }
 }
 
-// Post abstract
 .post-abstract {
   font-family: $serif-family;
   font-style: italic;
   font-size: 0.9375rem;
-  color: $gray;
+  color: var(--muted);
   line-height: 1.65;
-  border-left: 3px solid $light;
+  border-left: 3px solid var(--line);
   padding: 0.25rem 1.25rem;
   margin-bottom: 2rem;
 }
 
-// Reading time
 .read-time {
   font-size: $small-font-size;
-  color: $gray;
+  color: var(--muted);
   margin-left: 0.5em;
 }
 
-// Post content
+// Post / page body
 .page-content {
   padding-top: 8px;
   font-family: $serif-family;
   font-size: 1.0625rem;
 
-  // Drop cap on first paragraph
   > p:first-of-type::first-letter {
     float: left;
     font-size: 3.4em;
@@ -203,17 +184,13 @@
     margin-right: 0.1em;
     margin-top: 0.1em;
     font-weight: 600;
-    color: $black;
+    color: var(--heading);
   }
 
-  iframe {
-    text-align: center;
-  }
+  iframe { text-align: center; }
 
   figure {
-    img {
-      border-radius: 2px;
-    }
+    img { border-radius: 2px; }
 
     figcaption {
       margin-top: 5px;
@@ -223,10 +200,11 @@
   }
 
   a {
-    color: $text-link-blue;
+    color: var(--accent);
     text-decoration: underline;
-    text-decoration-color: rgba($text-link-blue, 0.25);
+    text-decoration-color: color-mix(in srgb, var(--accent) 30%, transparent);
     text-underline-offset: 2px;
+
     &[target="_blank"]::after {
       content: " \2197";
       font-size: $small-font-size;
@@ -236,13 +214,20 @@
       vertical-align: baseline;
     }
 
-    &:hover {
-      color: $text-link-blue-active;
-    }
-
+    &:hover,
+    &:active,
     &:focus {
-      color: $text-link-blue;
+      color: var(--accent-active);
+      text-decoration-color: color-mix(in srgb, var(--accent-active) 45%, transparent);
     }
+  }
+
+  // List links (archive, tags) keep the quiet list style, not prose link style
+  .post-item-title a {
+    color: var(--heading);
+    text-decoration: none;
+
+    &:hover { color: var(--accent); }
   }
 
   > p {
@@ -252,44 +237,31 @@
   }
 
   ul.task-list {
-    list-style: none; 
+    list-style: none;
     margin: 0;
 
-    li::before {
-      content: "";
-    }
+    li::before { content: ""; }
 
-    li input[type="checkbox"] {
-      margin-right: 10px;
-    }
+    li input[type="checkbox"] { margin-right: 10px; }
   }
 
-  dl dt {
-    font-weight: $bold-weight;
-  }
+  dl dt { font-weight: $bold-weight; }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: $black;
-    font-weight: $bold-weight;
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--heading);
     margin-top: $spacing-full;
     margin-bottom: 0;
 
-    &:hover {
-      .anchor-head {
-        color: $text-link-blue;
-        opacity: 1;
-      }
+    &:hover .anchor-head {
+      color: var(--accent);
+      opacity: 1;
     }
 
     .anchor-head {
       position: relative;
       opacity: 0;
       outline: none;
+      color: var(--accent);
 
       &::before {
         content: "#";
@@ -301,68 +273,50 @@
     }
   }
 
-  h1 {
-    @include relative-font-size(1.5);
-  }
-
-  h2 {
-    @include relative-font-size(1.375);
-  }
+  h1 { @include relative-font-size(1.5); }
+  h2 { @include relative-font-size(1.375); }
 
   h3 {
     @include relative-font-size(1.25);
-    border-bottom: 1px solid $light;
+    border-bottom: 1px solid var(--line);
     padding-bottom: 4px;
   }
 
-  h4 {
-    @include relative-font-size(1.25);
-  }
-
-  h5 {
-    @include relative-font-size(1);
-  }
-
-  h6 {
-    @include relative-font-size(0.875);
-  }
+  h4 { @include relative-font-size(1.25); }
+  h5 { @include relative-font-size(1); }
+  h6 { @include relative-font-size(0.875); }
 }
 
+// Previous / next
 .post-nav {
   display: flex;
   position: relative;
   margin-top: 5em;
-  border-top: 1px solid $light;
+  border-top: 1px solid var(--line);
   line-height: 1.4;
 
   .post-nav-item {
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    box-sizing: border-box;
     border-bottom: 0;
     font-weight: $bold-weight;
-    padding-bottom: 10px;
+    text-decoration: none;
 
-    .post-title {
-      color: $black;
-    }
+    .post-title { color: var(--heading); }
 
-    &:hover,
-    &:focus {
-      .post-title {
-        color: $text-link-blue-active;
-        opacity: 0.9;
-      }
+    &:hover .post-title,
+    &:focus .post-title {
+      color: var(--accent);
     }
 
     .nav-arrow {
       font-weight: $normal-weight;
       font-size: $small-font-size;
-      color: $gray;
+      color: var(--muted);
       margin-bottom: 3px;
     }
-
-    width: 50%;
-    padding-top: 10px;
-    text-decoration: none;
-    box-sizing: border-box;
 
     &:nth-child(odd) {
       padding-left: 0;
@@ -386,13 +340,13 @@
     }
 
     .post-nav-item:nth-child(even) {
-      border-left: 0;
+      text-align: left;
       padding-left: 0;
-      border-top: 1px solid $light;
+      border-top: 1px solid var(--line);
     }
   }
 }
 
 .post-updated-at {
-  font-family: "Ubuntu mono", "monospace";
+  font-family: $mono-family;
 }

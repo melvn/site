@@ -2,36 +2,28 @@
 layout: compress
 ---
 <!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: " en " }}">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 {% include header.html %}
 
 <body data-theme="{{ site.mode }}" class="notransition">
-
   <script>
-    const body = document.body;
-    const data = body.getAttribute("data-theme");
-
-    const initTheme = (state) => {
-      if (state === "dark") {
+    (function () {
+      var body = document.body;
+      var theme = localStorage.getItem("theme") || body.getAttribute("data-theme");
+      if (theme === "dark") {
         body.setAttribute("data-theme", "dark");
-      } else if (state === "light") {
-        body.removeAttribute("data-theme");
       } else {
-        localStorage.setItem("theme", data);
+        body.removeAttribute("data-theme");
       }
-    };
- 
-    initTheme(localStorage.getItem("theme"));
-    
-    setTimeout(() => body.classList.remove("notransition"), 75);
+      setTimeout(function () { body.classList.remove("notransition"); }, 75);
+    })();
   </script>
 
   {% include navbar.html %}
-  <div class="wrapper">
-    {% include author.html %}
-    <main aria-label="Content">
-      {{ content }}
-    </main>
+  {{ content }}
+  <div class="wrapper footer-wrap">
+    {% include footer.html %}
   </div>
 </body>
+
 </html>

@@ -1,0 +1,133 @@
+@use "variables" as *;
+
+code {
+  font-family: $mono-family;
+  text-rendering: optimizeLegibility;
+  font-variant-ligatures: normal;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  font-size: 0.92em;
+
+  &.highlighter-rouge {
+    padding: 1px 4px;
+    position: relative;
+    top: -1px;
+    background-color: var(--code-inline-bg);
+    border-radius: 3px;
+    border: 1px solid rgba(128, 128, 128, 0.15);
+  }
+}
+
+pre.highlight,
+pre {
+  margin: 0.5rem -27px;
+  padding: 14px 16px;
+  display: block;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  background-color: var(--code-bg);
+  border-radius: 4px;
+
+  @include media-query($on-mobile) {
+    margin: 0.5rem (-$spacing-half);
+  }
+
+  > code {
+    display: block;
+    width: 100%;
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+    border: 0;
+  }
+}
+
+.highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+
+.highlight,
+.highlight .w,
+.highlight .o,
+.highlight .ow,
+.highlight .p,
+.highlight .pi {
+  color: var(--code-text);
+}
+
+.highlight .err,
+.highlight .gd {
+  color: var(--syn-error);
+}
+
+.highlight .err { font-weight: bold; }
+
+.highlight .c,
+.highlight .cd,
+.highlight .cm,
+.highlight .c1,
+.highlight .cs {
+  color: var(--syn-comment);
+  font-style: italic;
+}
+
+.highlight .cp,
+.highlight .nn,
+.highlight .nc {
+  color: var(--syn-ns);
+}
+
+.highlight .nt,
+.highlight .k,
+.highlight .kn,
+.highlight .kp,
+.highlight .kr,
+.highlight .kv {
+  color: var(--syn-keyword);
+}
+
+.highlight .kc,
+.highlight .no,
+.highlight .m,
+.highlight .mf,
+.highlight .mh,
+.highlight .mi,
+.highlight .il,
+.highlight .mo,
+.highlight .mb,
+.highlight .mx {
+  color: var(--syn-const);
+}
+
+.highlight .kt { color: var(--syn-type); }
+
+.highlight .kd,
+.highlight .se {
+  color: var(--syn-decl);
+}
+
+.highlight .s,
+.highlight .sb,
+.highlight .sc,
+.highlight .sd,
+.highlight .s2,
+.highlight .sh,
+.highlight .sx,
+.highlight .s1,
+.highlight .si,
+.highlight .sr {
+  color: var(--syn-string);
+  font-style: italic;
+}
+
+.highlight .na,
+.highlight .gi,
+.highlight .gh {
+  color: var(--syn-string);
+}
+
+.highlight .gh { font-weight: bold; }
+
+.highlight .ss { color: var(--syn-special); }

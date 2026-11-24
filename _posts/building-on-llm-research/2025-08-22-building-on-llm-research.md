@@ -2,7 +2,7 @@
 layout: post
 title: "Building on LLM Research: Smart Contract Security and Beyond"
 date: 2025-08-21 10:00:00 +1000
-categories: research llm
+tags: [research, llm]
 description: "A few years of building on LLM research in smart contract security — from GPTLens to AutoScType — and what I learned about reasoning models, adversarial agent architectures, and arriving at the same idea as the original authors six months later."
 ---
 

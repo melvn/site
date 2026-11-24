@@ -8,7 +8,7 @@ comments: false
 
 Hi, I'm **Melvin Goxhaj** — a data analyst at ANZ in Melbourne. I studied Computer Science with a major in Artificial Intelligence at Swinburne University of Technology. My focus is on building reliable machine learning systems and models that can be used in production environments for real world impact.
 
-I've had the chance to design and deploy ML applications that has served thousands of users, including [StopOdds.com](https://github.com/{{ site.author.github }}/StopOdds), an end-to-end ML project where I built inference services with FastAPI, set up CI/CD pipelines, added monitoring, and automated retraining. I've also explored smart contract security with LLMs, real estate price prediction, and deep learning image classification throughout my time as a student. Most of my work emphasizes simplicity, data quality, and making sure systems can be trusted in real-world settings.
+I've had the chance to design and deploy ML applications that have served thousands of users, including [StopOdds.com](https://github.com/{{ site.author.github }}/StopOdds), an end-to-end ML project where I built inference services with FastAPI, set up CI/CD pipelines, added monitoring, and automated retraining. I've also explored smart contract security with LLMs, real estate price prediction, and deep learning image classification throughout my time as a student. Most of my work emphasizes simplicity, data quality, and making sure systems can be trusted in real-world settings.
 
 Right now, I'm especially interested in deep learning and reasoning models. I'm always experimenting with new ways to bridge research and production.
 
@@ -24,6 +24,6 @@ I enjoy building things that don't just work in theory, but actually hold up in 
 
 ## Contact
 
-Feel free to reach out if you'd like to discuss ML systems engineering, deepl learning, or any and all interesting projects:
+Feel free to reach out if you'd like to discuss ML systems engineering, deep learning, or any and all interesting projects:
 
-- [LinkedIn](https://www.linkedin.com/in/melvin-goxhaj-336a16260/{{ site.author.username }})
+- [LinkedIn](https://www.linkedin.com/in/{{ site.author.linkedin }}/)
