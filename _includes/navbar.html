@@ -1,9 +1,6 @@
 <div class="navbar" role="navigation">
   <nav class="menu" aria-label="Primary">
-    <a class="menu-brand" href="/">
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="9" stroke-linejoin="miter" stroke-miterlimit="10" aria-hidden="true"><path d="M17 47V17l15 19 15-19v30" /></svg>
-      <span>{{ site.title }}</span>
-    </a>
+    <a class="menu-brand" href="/">{{ site.title }}</a>
     <div class="menu-links">
       {%- for menu in site.data.menus -%}
         <a class="menu-link{% if page.url == menu.url %} active{% endif %}" href="{{ menu.url }}"{% if page.url == menu.url %} aria-current="page"{% endif %}{% if menu.external %} target="_blank" rel="noopener"{% endif %}>{{ menu.title }}</a>

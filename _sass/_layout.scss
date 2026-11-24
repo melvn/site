@@ -32,17 +32,10 @@
 }
 
 .menu-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
   font-weight: 650;
   letter-spacing: -0.01em;
   color: var(--heading);
   text-decoration: none;
-
-  svg {
-    color: var(--accent);
-  }
 }
 
 .menu-links {
