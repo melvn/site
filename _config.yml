@@ -16,13 +16,15 @@ author:
     Data analyst at ANZ in Melbourne and Computer Science student.
     I work on machine learning and AI alignment, and write here about
     what I build and what I learn. Find me on
-    [X](https://x.com/melvingoxhaj) or reach me at
+    [X](https://x.com/melvingoxhaj) and
+    [GitHub](https://github.com/melvingoxhaj), or reach me at
     [melvingoxhaj@gmail.com](mailto:melvingoxhaj@gmail.com).
   username: melvingoxhaj # general username
   github: melvingoxhaj # github username
   linkedin: melvin-goxhaj-336a16260 # linkedin username
   twitter: melvingoxhaj # twitter / x username
-  email: # email adress
+  email: # leave blank to keep the email out of the home page links
+  email_public: melvingoxhaj@gmail.com # shown on the about page
 
 # URL settings
 url: "https://klise.now.sh" #

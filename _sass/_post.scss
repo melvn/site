@@ -155,27 +155,6 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.4rem 0.5rem;
-
-  .tags {
-    display: inline-flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-left: 0.4rem;
-  }
-
-  .tag {
-    text-decoration: none;
-    color: var(--muted);
-
-    &::before {
-      content: "#";
-      opacity: 0.55;
-    }
-
-    &:hover {
-      color: var(--accent);
-    }
-  }
 }
 
 // Body copy

@@ -26,11 +26,6 @@ layout: default
           <span class="read-time">{{ content | number_of_words | divided_by: 200 | at_least: 1 }} min read</span>
           {%- if page.modified %}<span aria-hidden="true">·</span><span>Updated {{ page.modified | date: "%b %-d, %Y" }}</span>{% endif -%}
           {%- if page.status %}<span aria-hidden="true">·</span><span class="status">{{ page.status }}</span>{% endif -%}
-          {%- if page.tags and page.tags != empty %}
-          <span class="tags" itemprop="keywords">
-            {%- for tag in page.tags %}<a class="tag" href="/tags/#{{ tag | slugify }}">{{ tag }}</a>{% endfor -%}
-          </span>
-          {%- endif %}
         </p>
         {% endif %}
       </header>
@@ -45,7 +40,9 @@ layout: default
       </div>
     </article>
 
-    {% include cite.html %}
+    {% if page.cite %}
+      {% include cite.html %}
+    {% endif %}
 
     {% if page.next or page.previous %}
       {% include navigation.html %}

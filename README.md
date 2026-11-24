@@ -26,7 +26,8 @@ Create `_posts/<slug>/YYYY-MM-DD-<slug>.md` with this front matter:
 title: "Post title"
 date: 2026-12-01 10:00:00 +1100
 description: One sentence shown on the home page and under the title.
-tags: [alignment]
+tags: [alignment]      # optional, used by search only
+cite: true             # optional, adds a "Cite this post" BibTeX block
 status: Draft          # optional label, e.g. Draft or Revised
 modified: 2026-12-10   # optional, shows "Updated ..."
 math: true             # optional, loads KaTeX for this post
@@ -42,4 +43,4 @@ What the template gives you with plain markdown:
 - **Code blocks** get a language label and a copy button.
 - **Links to your other posts** show a hover preview.
 - **Search**: press Ctrl or Cmd + K, or `/`, anywhere on the site.
-- **Cite this post** with BibTeX appears at the end of every post.
+- **Cite this post** with BibTeX appears at the end of posts that set `cite: true`.
