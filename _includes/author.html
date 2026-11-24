@@ -1,6 +1,6 @@
 <header class="intro">
   <h1 class="sr-only">{{ site.title }}</h1>
-  <p class="intro-bio">{{ site.author.bio | strip | normalize_whitespace }}</p>
+  <p class="intro-bio">{{ site.author.bio | strip | normalize_whitespace | markdownify | remove: "<p>" | remove: "</p>" | strip }}</p>
   <p class="intro-links">
     <a href="https://github.com/{{ site.author.github }}" rel="noopener">GitHub</a>
     {%- if site.author.linkedin %}<a href="https://www.linkedin.com/in/{{ site.author.linkedin }}/" rel="noopener">LinkedIn</a>{% endif -%}

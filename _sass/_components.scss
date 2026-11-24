@@ -225,6 +225,32 @@ div.highlighter-rouge:hover .code-tools,
   .popover-desc {
     color: var(--muted);
   }
+
+  &.card {
+    width: min(420px, calc(100vw - 24px));
+    max-height: 24rem;
+    overflow-y: auto;
+    padding: 0.9rem 1.05rem 1rem;
+  }
+
+  .popover-meta {
+    display: block;
+    margin-bottom: 0.55rem;
+    font-size: 0.76rem;
+    color: var(--muted);
+  }
+
+  .popover-text p {
+    margin: 0 0 0.6em;
+    font-family: $serif-family;
+    font-size: 0.94rem;
+    line-height: 1.55;
+    color: var(--text);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
 }
 
 // Search palette (press Ctrl or Cmd + K)

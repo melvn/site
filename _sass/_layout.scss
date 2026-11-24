@@ -118,6 +118,15 @@ body[data-theme="dark"] #mode {
   line-height: 1.55;
   color: var(--heading);
   letter-spacing: -0.005em;
+
+  a {
+    color: var(--accent);
+    text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+
+    &:hover {
+      color: var(--accent-active);
+    }
+  }
 }
 
 .intro-links {
