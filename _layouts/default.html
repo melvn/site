@@ -5,20 +5,19 @@ layout: compress
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 {% include header.html %}
 
-<body data-theme="{{ site.mode }}" class="notransition">
+<body data-layout="{{ page.layout }}" data-default-theme="{{ site.mode }}" class="notransition">
   <script>
     (function () {
       var body = document.body;
-      var theme = localStorage.getItem("theme") || body.getAttribute("data-theme");
-      if (theme === "dark") {
-        body.setAttribute("data-theme", "dark");
-      } else {
-        body.removeAttribute("data-theme");
-      }
+      var saved = localStorage.getItem("theme");
+      var fallback = body.getAttribute("data-default-theme");
+      var theme = saved || (fallback === "dark" || fallback === "light" ? fallback : (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"));
+      if (theme === "dark") { body.setAttribute("data-theme", "dark"); } else { body.removeAttribute("data-theme"); }
       setTimeout(function () { body.classList.remove("notransition"); }, 75);
     })();
   </script>
 
+  <div class="progress" id="progress" aria-hidden="true"></div>
   {% include navbar.html %}
   {{ content }}
   <div class="wrapper footer-wrap">

@@ -2,46 +2,42 @@
 
 code {
   font-family: $mono-family;
-  text-rendering: optimizeLegibility;
-  font-variant-ligatures: normal;
-  white-space: pre;
+  font-size: 0.86em;
+  font-variant-ligatures: none;
   word-spacing: normal;
   word-break: normal;
-  word-wrap: normal;
-  font-size: 0.92em;
-
-  &.highlighter-rouge {
-    padding: 1px 4px;
-    position: relative;
-    top: -1px;
-    background-color: var(--code-inline-bg);
-    border-radius: 3px;
-    border: 1px solid rgba(128, 128, 128, 0.15);
-  }
 }
 
-pre.highlight,
+// Inline code
+:not(pre) > code {
+  padding: 0.12em 0.35em;
+  border-radius: 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
 pre {
-  margin: 0.5rem -27px;
-  padding: 14px 16px;
-  display: block;
+  margin: 1.4rem 0;
+  padding: 1rem 1.1rem;
   overflow-x: auto;
   border: 1px solid var(--line);
-  background-color: var(--code-bg);
-  border-radius: 4px;
-
-  @include media-query($on-mobile) {
-    margin: 0.5rem (-$spacing-half);
-  }
+  border-radius: 8px;
+  background: var(--code-bg);
+  color: var(--code-text);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  tab-size: 4;
 
   > code {
     display: block;
-    width: 100%;
-    max-width: 50rem;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.5;
+    padding: 0;
     border: 0;
+    background: none;
+    font-size: inherit;
+    white-space: pre;
+    overflow-wrap: normal;
   }
 }
 
@@ -117,11 +113,7 @@ pre {
 .highlight .sx,
 .highlight .s1,
 .highlight .si,
-.highlight .sr {
-  color: var(--syn-string);
-  font-style: italic;
-}
-
+.highlight .sr,
 .highlight .na,
 .highlight .gi,
 .highlight .gh {

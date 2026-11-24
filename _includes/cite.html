@@ -1,0 +1,14 @@
+{%- assign cite_year = page.date | date: "%Y" -%}
+{%- assign cite_word = page.title | split: " " | first | slugify | replace: "-", "" -%}
+<details class="cite">
+  <summary>Cite this post</summary>
+  <div class="cite-body">
+    <pre class="cite-code"><code>@misc{ {{- site.author.username -}}{{ cite_year }}{{ cite_word }},
+  author = {% raw %}{{% endraw %}{{ site.author.name }}{% raw %}}{% endraw %},
+  title  = {% raw %}{{% endraw %}{{ page.title }}{% raw %}}{% endraw %},
+  year   = {% raw %}{{% endraw %}{{ cite_year }}{% raw %}}{% endraw %},
+  url    = {% raw %}{{% endraw %}{{ page.url | absolute_url }}{% raw %}}{% endraw %}
+}</code></pre>
+    <button type="button" class="cite-copy">Copy BibTeX</button>
+  </div>
+</details>

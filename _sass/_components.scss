@@ -1,0 +1,349 @@
+@use "variables" as *;
+
+// Reading progress
+.progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+  opacity: 0;
+
+  &.on {
+    opacity: 1;
+  }
+}
+
+// Footnote references
+.page-content sup:has(> a.footnote) {
+  font-family: $sans-family;
+  font-size: 0.68em;
+  line-height: 0;
+  margin-left: 1px;
+
+  a {
+    text-decoration: none;
+    padding: 0 1px;
+  }
+}
+
+// Sidenotes and margin figures live in the right-hand column on wide screens.
+// Below that, sidenotes become popups and margin figures flow inline.
+.page-content .sidenote {
+  display: none;
+}
+
+.page-content .sidenote-num {
+  font-family: $sans-family;
+  font-weight: 600;
+  color: var(--accent);
+  margin-right: 0.35em;
+}
+
+@mixin margin-item {
+  float: right;
+  clear: right;
+  position: relative;
+  width: $sidenote-width;
+  margin: 0.15rem (-($sidenote-width + $sidenote-gap)) 1rem 0;
+  font-family: $sans-family;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--muted);
+  text-align: left;
+}
+
+@include from($on-wide) {
+  .page-content .sidenote {
+    display: block;
+    @include margin-item;
+
+    p { margin: 0 0 0.5em; }
+  }
+
+  .page-content .margin,
+  .page-content figure.margin {
+    @include margin-item;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  // Wide figures break out into both side columns
+  .page-content figure.wide {
+    margin-left: -110px;
+    margin-right: -110px;
+  }
+
+  .page-content.has-sidenotes .footnotes {
+    display: none;
+  }
+}
+
+.page-content img.margin {
+  @include media-query($on-wide - 1) {
+    display: block;
+    margin: 1.4rem auto;
+  }
+}
+
+.page-content .footnotes {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.88rem;
+  color: var(--muted);
+
+  ol { padding-left: 1.2em; }
+  p { margin: 0; }
+}
+
+// Callouts: add `{: .callout}` or `{: .callout .claim}` under a blockquote
+.page-content .callout {
+  margin: 1.6rem 0;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.96em;
+
+  > :first-child { margin-top: 0; }
+  > :last-child { margin-bottom: 0; }
+
+  &::before {
+    display: block;
+    margin-bottom: 0.3rem;
+    font-family: $sans-family;
+    font-size: 0.7rem;
+    font-weight: 650;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent);
+    content: "Note";
+  }
+
+  &.definition::before { content: "Definition"; }
+  &.claim::before { content: "Claim"; }
+  &.caveat::before { content: "Caveat"; }
+  &.result::before { content: "Result"; }
+}
+
+// Code blocks
+div.highlighter-rouge {
+  position: relative;
+  margin: 1.4rem 0;
+
+  @include from(780px) {
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  pre,
+  .highlight {
+    margin: 0;
+  }
+
+  &.has-tools pre {
+    padding-top: 1.9rem;
+  }
+}
+
+.code-tools {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.6rem;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: $sans-family;
+  font-size: 0.7rem;
+  line-height: 1;
+}
+
+.code-lang {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.code-copy {
+  padding: 0.28rem 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  opacity: 0;
+
+  &:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+}
+
+div.highlighter-rouge:hover .code-copy,
+.code-copy:focus-visible,
+.code-copy.done {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .code-copy {
+    opacity: 0.85;
+  }
+}
+
+// Popovers: footnotes on narrow screens, previews of links to other posts
+.popover {
+  position: absolute;
+  z-index: 50;
+  max-width: min(360px, calc(100vw - 24px));
+  box-sizing: border-box;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  font-family: $sans-family;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 120ms ease, transform 120ms ease;
+  pointer-events: none;
+
+  &.on {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  p { margin: 0; }
+  p + p { margin-top: 0.5em; }
+
+  a { color: var(--accent); }
+
+  .popover-title {
+    display: block;
+    font-weight: 650;
+    color: var(--heading);
+    margin-bottom: 0.2rem;
+  }
+
+  .popover-desc {
+    color: var(--muted);
+  }
+}
+
+// Search palette (press Ctrl or Cmd + K)
+.palette {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 16px 16px;
+  background: rgba(10, 11, 14, 0.4);
+  backdrop-filter: blur(3px);
+
+  &.on {
+    display: flex;
+  }
+}
+
+.palette-box {
+  width: min(580px, 100%);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  box-shadow: var(--shadow);
+  font-family: $sans-family;
+}
+
+.palette-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.95rem 1.1rem;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  outline: none;
+  background: none;
+  color: var(--heading);
+  font: inherit;
+  font-size: 1.02rem;
+
+  &::placeholder {
+    color: var(--muted);
+  }
+}
+
+.palette-results {
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  overflow-y: auto;
+
+  li {
+    padding: 0;
+  }
+}
+
+.palette-item {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+
+  &[aria-selected="true"] {
+    background: var(--surface);
+  }
+
+  .palette-title {
+    display: block;
+    font-weight: 600;
+    color: var(--heading);
+  }
+
+  .palette-desc {
+    display: block;
+    margin-top: 0.1rem;
+    font-size: 0.84rem;
+    color: var(--muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.palette-empty {
+  padding: 1rem 1.1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.palette-hint {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem 1.1rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.74rem;
+  color: var(--muted);
+}

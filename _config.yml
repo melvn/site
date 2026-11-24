@@ -1,26 +1,25 @@
 # Site settings
 title: Melvin Goxhaj # site title
 description: >- # site description
-  Data analyst at ANZ. Computer Science graduate from Swinburne University of Technology, majoring in AI.
+  Data analyst at ANZ. Computer Science student.
   Building reliable ML systems and production-ready tools.
 lang: en-US # default lang
 timezone: Australia/Melbourne # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
 repo: https://github.com/melvn/site # site repo [optional]
-mode: dark # default theme "dark" | "light"
+mode: system # default theme "system" | "dark" | "light"
 
 # Profile settings
 author:
   name: Melvin Goxhaj # author name
   bio: >- # tell to the world
-    Data analyst at ANZ in Melbourne. Computer Science graduate from Swinburne University of Technology,
-    majoring in Artificial Intelligence. I'm interested in difficult problems with simple solutions.
+    Data analyst at ANZ in Melbourne. Computer Science student.
+    I'm interested in difficult problems with simple solutions.
   username: melvingoxhaj # general username
   github: melvingoxhaj # github username
   linkedin: melvin-goxhaj-336a16260 # linkedin username
   twitter: # twitter username
   email: # email adress
-  avatar: /assets/img/me.jpg
 
 # URL settings
 url: "https://klise.now.sh" #
@@ -57,9 +56,6 @@ jekyll_compose:
     modified:
     tags: []
     description:
-
-# Homepage limit posts
-number_of_posts: 5
 
 # Build settings
 # theme: klise

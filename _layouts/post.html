@@ -9,53 +9,48 @@ layout: default
     <nav id="toc"></nav>
   </aside>
 
-  <div class="post-inner">
-    <main aria-label="Content">
-      <article itemscope itemtype="https://schema.org/BlogPosting">
+  <main class="post-inner" aria-label="Content">
+    <article itemscope itemtype="https://schema.org/BlogPosting">
 
-        <header class="header">
-          {% if page.tags and page.tags != empty %}
-          <div class="tags">
-            <span itemprop="keywords">
-              {% for tag in page.tags %}
-              <a class="tag" href="/tags/#{{ tag | slugify }}">{{ tag | upcase }}</a>{% unless forloop.last %},{% endunless %}
-              {% endfor %}
-            </span>
-          </div>
-          {% endif %}
-          <h1 class="header-title" itemprop="headline">{{ page.title | escape }}</h1>
-          {% if page.date %}
-          <div class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
-              {{ page.date | date: "%b %d, %Y" }}
-            </time>
-            <time hidden datetime="{{ page.modified | default: page.date | date_to_xmlschema }}" itemprop="dateModified"></time>
-            <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person">
-              <span itemprop="name">{{ site.author.name }}</span>
-            </span>
-            <span class="read-time">{{ content | number_of_words | divided_by: 200 | at_least: 1 }} min read</span>
-          </div>
-          {% endif %}
-        </header>
-
+      <header class="header">
+        <h1 class="header-title" itemprop="headline">{{ page.title | escape }}</h1>
         {% if page.description %}
         <p class="post-abstract">{{ page.description }}</p>
         {% endif %}
+        {% if page.date %}
+        <p class="post-meta">
+          <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+          <time hidden datetime="{{ page.modified | default: page.date | date_to_xmlschema }}" itemprop="dateModified"></time>
+          <span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ site.author.name }}</span></span>
+          <span aria-hidden="true">·</span>
+          <span class="read-time">{{ content | number_of_words | divided_by: 200 | at_least: 1 }} min read</span>
+          {%- if page.modified %}<span aria-hidden="true">·</span><span>Updated {{ page.modified | date: "%b %-d, %Y" }}</span>{% endif -%}
+          {%- if page.status %}<span aria-hidden="true">·</span><span class="status">{{ page.status }}</span>{% endif -%}
+          {%- if page.tags and page.tags != empty %}
+          <span class="tags" itemprop="keywords">
+            {%- for tag in page.tags %}<a class="tag" href="/tags/#{{ tag | slugify }}">{{ tag }}</a>{% endfor -%}
+          </span>
+          {%- endif %}
+        </p>
+        {% endif %}
+      </header>
 
-        <div class="page-content" itemprop="articleBody">
-          {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=1 h_max=4 %}
-        </div>
-      </article>
-    </main>
+      <details class="toc-mobile" id="toc-mobile" hidden>
+        <summary>Contents</summary>
+        <nav id="toc-m"></nav>
+      </details>
 
-    {% if page.modified %}
-      <small class="post-updated-at">updated {{ page.modified | date: "%d-%m-%Y" }}</small>
-    {% endif %}
+      <div class="page-content" itemprop="articleBody">
+        {% include anchor_headings.html html=content anchorClass="anchor-head" beforeHeading=true h_min=1 h_max=4 %}
+      </div>
+    </article>
+
+    {% include cite.html %}
+
     {% if page.next or page.previous %}
       {% include navigation.html %}
     {% endif %}
-
-  </div>
+  </main>
 
   <div class="margin-col" aria-hidden="true"></div>
 

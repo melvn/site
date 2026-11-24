@@ -1,18 +1,19 @@
 // All colour lives here. Light is the default, dark overrides the tokens.
 body {
-  --bg: #fff;
-  --text: #434648;
-  --heading: #0d122b;
-  --muted: #6b7886;
-  --line: #ececec;
-  --smoke: #d2c7c7;
-  --accent: #003fff;
-  --accent-active: #0036c7;
-  --focus: rgba(0, 54, 199, 0.6);
-  --selection: rgba(0, 63, 255, 0.18);
-  --code-inline-bg: #f6f6f6;
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #f6f7f9;
+  --text: #2a2d32;
+  --heading: #0f1115;
+  --muted: #5d6673;
+  --line: #e6e8ec;
+  --accent: #1f4fd8;
+  --accent-active: #173fb0;
+  --focus: rgba(31, 79, 216, 0.55);
+  --selection: rgba(31, 79, 216, 0.16);
+  --shadow: 0 18px 50px rgba(15, 17, 21, 0.18);
 
-  --code-bg: #f6f8fa;
+  --code-bg: var(--surface);
   --code-text: #24292f;
   --syn-comment: #6a737d;
   --syn-keyword: #cf222e;
@@ -26,27 +27,27 @@ body {
 }
 
 body[data-theme="dark"] {
-  --bg: #131418;
-  --text: #c7bebe;
-  --heading: #eaeaea;
-  --muted: #767f87;
-  --line: #1b1d25;
-  --smoke: #4a4d56;
-  --accent: #ff5277;
-  --accent-active: #ff2957;
-  --focus: rgba(255, 82, 119, 0.6);
-  --selection: rgba(255, 82, 119, 0.3);
-  --code-inline-bg: #1b1d25;
+  color-scheme: dark;
+  --bg: #101114;
+  --surface: #17181d;
+  --text: #c9ccd1;
+  --heading: #f0f1f3;
+  --muted: #8b929c;
+  --line: #23262d;
+  --accent: #8fb0ff;
+  --accent-active: #b4c8ff;
+  --focus: rgba(143, 176, 255, 0.6);
+  --selection: rgba(143, 176, 255, 0.25);
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
 
-  --code-bg: #1a1b21;
-  --code-text: #fbf1c7;
-  --syn-comment: #928374;
-  --syn-keyword: #fb4934;
-  --syn-const: #d3869b;
-  --syn-type: #fabd2f;
-  --syn-decl: #fe8019;
-  --syn-string: #b8bb26;
-  --syn-ns: #8ec07c;
-  --syn-special: #83a598;
-  --syn-error: #fb4934;
+  --code-text: #e6e1cf;
+  --syn-comment: #8a8f98;
+  --syn-keyword: #ff7b72;
+  --syn-const: #79c0ff;
+  --syn-type: #ffa657;
+  --syn-decl: #ffa657;
+  --syn-string: #a5d6a7;
+  --syn-ns: #7ee0c3;
+  --syn-special: #8fb0ff;
+  --syn-error: #ff7b72;
 }
