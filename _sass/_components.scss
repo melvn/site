@@ -1,5 +1,45 @@
 @use "variables" as *;
 
+// Marks after links in posts show where a link leads.
+// A degree sign for outside links, short labels for a few known sites.
+// Links to your own posts get no mark because they show a preview on hover.
+$link-marks: (
+  "arxiv.org": "arXiv",
+  "github.com": "GH",
+  "x.com/": "X",
+  "twitter.com/": "X",
+  "lesswrong.com": "LW",
+  "alignmentforum.org": "AF",
+  "wikipedia.org": "W",
+);
+
+[data-layout="post"] .page-content {
+  a[href^="http"]::after {
+    content: "\00B0";
+    display: inline-block;
+    margin-left: 0.5px;
+    color: var(--muted);
+    text-decoration: none;
+  }
+
+  @each $host, $label in $link-marks {
+    a[href*="#{$host}"]::after {
+      content: $label;
+      margin-left: 0.2em;
+      font-family: $sans-family;
+      font-size: 0.6em;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      vertical-align: super;
+      line-height: 0;
+    }
+  }
+
+  a[href^="http"]:hover::after {
+    color: var(--accent-active);
+  }
+}
+
 // Footnote references
 .page-content sup:has(> a.footnote) {
   font-family: $sans-family;
