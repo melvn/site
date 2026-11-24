@@ -16,4 +16,4 @@ Right now, I'm especially interested in deep learning and reasoning models. I'm 
 
 Feel free to reach out if you'd like to discuss ML systems engineering, deep learning, or any and all interesting projects:
 
-- [LinkedIn](https://www.linkedin.com/in/{{ site.author.linkedin }}/)
+- [X / Twitter](https://x.com/{{ site.author.twitter }})
